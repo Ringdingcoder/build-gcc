@@ -125,9 +125,13 @@ jobs:
             tar -c -f $DIR-git.tar $DIR
           done
           rm -rf */
+          
+      - name: Show tree
+        run: tree build
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
+        if: false
         with:
           name: the-build
           path: |
