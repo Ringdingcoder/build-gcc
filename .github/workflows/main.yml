@@ -126,10 +126,15 @@ jobs:
           done
           rm -rf */
           
+      - name: Install dependencies (ubuntu)
+        if: contains(matrix.os, 'ubuntu')
+        run: |
+          tar czvf build/artif1.tar.gz build/djgpp-205
+          tar czvf build/artif2.tar.gz build/djcross-gcc-10.2.0/djcross
+
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: the-build
           path: |
-            build/djgpp-205
-            build/djcross-gcc-10.2.0/djcross
+            build/artif*
