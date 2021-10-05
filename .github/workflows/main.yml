@@ -132,3 +132,4 @@ jobs:
           name: the-build
           path: |
             build/djgpp-205
+            build/djcross-gcc-10.2.0/djcross
